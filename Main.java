@@ -40,6 +40,10 @@ int[] array = new int[4];
         int[] values = {1,3};
         swap(values);
         System.out.println(values[0] + " " + values[1]);
-
+        int a = 10;
+        long b = 20;
+        if(b < a){
+            System.out.println("asa");
+        }
     }
 }

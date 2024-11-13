@@ -1,3 +1,5 @@
+import java.util.PriorityQueue;
+
 public class Kth_largest_Element {
     // O(NlogN) solution
 
@@ -69,5 +71,37 @@ public class Kth_largest_Element {
             sort(nums, k);
             return nums[0];
         }
+    // using priorityQueue
+//    static int KthLargestElement(int[] arr,int k){
+//            PriorityQueue<Integer> minpq = new PriorityQueue<>();
+//            for(int i = 0 ; i < k;i++){
+//                minpq.add(arr[i]);
+//            }
+//            for(int i = k;i < arr.length;i++){
+//                if(minpq.peek() < arr[i]){
+//                    minpq.poll();
+//                    minpq.add(arr[i]);
+//                }
+//            }
+//            return minpq.peek();
+//    }
+
+    // simple and easy code
+
+    static int KthLargestElement(int[] arr,int k){
+        PriorityQueue<Integer> minpq = new PriorityQueue<>();
+        for (int i = 0; i < arr.length; i++) {
+            minpq.add(arr[i]);
+            if(minpq.size() > k){
+                minpq.poll();
+            }
+        }
+        return minpq.peek();
+    }
+
+    public static void main(String[] args) {
+        int[] array = {10,3,7,4,8,9,2,6};
+        System.out.println(KthLargestElement(array,5));
+    }
 
 }
